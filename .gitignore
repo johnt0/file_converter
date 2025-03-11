@@ -25,4 +25,3 @@ client/*.local
 
 wasm/target
 .git
-.gitignore
