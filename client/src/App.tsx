@@ -26,9 +26,12 @@ export default function FileUpload() {
       const uint8Array = new Uint8Array(arrayBuffer);
 
       try {
+        const start = performance.now();
         const result = await convert_image(uint8Array, selectedFormat);
+        const end = performance.now();
+        
         setConvertedImage(result);
-
+        console.log(`WebASM execution time: ${end - start} ms`);
         download(result, uploadedFile);
       } catch (error) {
         console.error("Conversion error:", error);
